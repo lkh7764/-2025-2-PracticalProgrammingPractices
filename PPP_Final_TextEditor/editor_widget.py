@@ -112,6 +112,7 @@ class EditorWidget(QWidget):
             if found is None:
                 return
             self.cursor = found
+            found.col = found.col - len(q)
 
             if not self.buf.replace_at(self.cursor, q, r):
                 self.update()
